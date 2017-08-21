@@ -1,0 +1,130 @@
+---------------- TEST_CheckingAccount ----------------
+## 開設帳戶時的金額 : 1500.0 ##
+# 領出-100元
+Number of days since last interest is 0
+Interest earned is 0.0
+EXCEPTION: Banking system throws a class account.BankingException with message: 
+	MESSAGE: 交易金額必須大於零,checking account name:John Smith
+	Account balance remains $1500.0
+
+# 存入1000元
+Number of days since last interest is 0
+Interest earned is 0.0
+Account <John Smith> now has $2500.0 balance
+
+# 領出2000元
+Number of days since last interest is 0
+Interest earned is 0.0
+EXCEPTION: Banking system throws a class account.BankingException with message: 
+	MESSAGE: 錢不夠領，最小餘額為$1000,checking account name:John Smith
+	Account balance remains $2500.0
+
+# 在1年後領出1000
+Number of days since last interest is 365
+Interest earned is 300.0
+Account <John Smith> now has $1800.0 balance
+
+---------------- END ----------------
+
+
+---------------- TEST_CheckingAccount ----------------
+## 開設帳戶時的金額 : 1200.0 ##
+# 領出-100元
+Number of Months since last interest is 0
+Interest earned is 0.0
+EXCEPTION: Banking system throws a class account.BankingException with message: 
+	MESSAGE: 交易金額必須大於零,saving account name:William Hurt
+	Account balance remains $1200.0
+
+# 領出1300元
+Number of Months since last interest is 0
+Interest earned is 0.0
+EXCEPTION: Banking system throws a class account.BankingException with message: 
+	MESSAGE: 錢不夠領,saving account name:William Hurt
+	Account balance remains $1200.0
+
+# 存入100元
+Number of Months since last interest is 0
+Interest earned is 0.0
+Account <William Hurt> now has $1300.0 balance
+
+# 存入100元
+Number of Months since last interest is 0
+Interest earned is 0.0
+Account <William Hurt> now has $1400.0 balance
+
+# 領出100元
+Number of Months since last interest is 0
+Interest earned is 0.0
+Account <William Hurt> now has $1300.0 balance
+
+# 領出100元，會扣$1手續費
+Number of Months since last interest is 0
+Interest earned is 0.0
+Account <William Hurt> now has $1199.0 balance
+
+# 在3個月後領出100
+Number of Months since last interest is 3
+Interest earned is 35.97
+Account <William Hurt> now has $1134.97 balance
+
+---------------- END ----------------
+
+
+---------------- TEST_CheckingAccount ----------------
+## 開設帳戶時的金額 : 1000.0 ##
+# 存入100元
+EXCEPTION: Banking system throws a class account.BankingException with message: 
+	MESSAGE: 不能存款
+	Account balance remains $1000.0
+
+# 開帳5個月後領出200元，因為在12個月內，所以還有$250手續費
+Number of Months since last interest is 5
+有效利息月數為：5
+Interest earned is 50.0
+Account <Woody Allison> now has $600.0 balance
+
+# 開帳5個月後領出500元，因為在12個月內，所以還有$250手續費，但因為手續費而導致餘額不足
+Number of Months since last interest is 0
+有效利息月數為：0
+Interest earned is 0.0
+EXCEPTION: Banking system throws a class account.BankingException with message: 
+	MESSAGE: 加上手續費後，錢不夠領,CD account name:Woody Allison
+	Account balance remains $600.0
+
+# 開帳2年後領出300元
+Number of Months since last interest is 19
+有效利息月數為：7
+Interest earned is 42.00000000000001
+Account <Woody Allison> now has $342.0 balance
+
+---------------- END ----------------
+
+
+---------------- TEST_CheckingAccount ----------------
+## 開設帳戶時的金額 : -1500.0 ##
+# 領出100元
+EXCEPTION: Banking system throws a class account.BankingException with message: 
+	MESSAGE: 不能提款
+	Account balance remains $-1500.0
+
+# 存入500元
+Number of Months since last interest is 0
+Interest earned is -0.0
+Account <Judi Foster> now has $-1000.0 balance
+
+# 存入-100元
+Number of Months since last interest is 0
+Interest earned is -0.0
+EXCEPTION: Banking system throws a class account.BankingException with message: 
+	MESSAGE: 交易金額必須大於零,loan account name:Judi Foster
+	Account balance remains $-1000.0
+
+# 5個月後存入300元
+Number of Months since last interest is 5
+Interest earned is -50.0
+Account <Judi Foster> now has $-750.0 balance
+
+---------------- END ----------------
+
+
